@@ -1,0 +1,37 @@
+<form #f="ngForm">
+    <div class="form-group">
+        <label>Title :</label>
+        <input class="form-control" type="text" name="title" #title="ngModel" [(ngModel)]="product.title" required minlength="3">
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+            <div *ngIf="title.errors?.['required']">Title is required</div>
+            <div *ngIf="title.errors?.['minlength']">Title must have at least 3 characters</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Price :</label>
+        <input class="form-control" type="number" name="price" [(ngModel)]="product.price">
+    </div>
+    <div class="form-group">
+        <label>Quantity :</label>
+        <input class="form-control" type="number" name="quantity" [(ngModel)]="product.quantity">
+    </div>
+    <div class="form-group">
+        <label>Picture :</label>
+        <input class="form-control" type="text" name="picture" [(ngModel)]="product.picture">
+    </div>
+    <!-- <div class="form-group">
+        <label>Email :</label>
+        <input class="form-control" type="text" name="emaill" #emaill="ngModel" [(ngModel)]="email" pattern="[a-zA-Z]+[0-9]+@esprit.tn">
+        <div class="alert alert-danger" *ngIf="emaill.touched && emaill.invalid">
+            <div>Email invalid</div>
+        </div>
+    </div>     -->
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Save" [disabled]="f.invalid">
+       
+    </div>
+</form>
+{{product.title}}
+{{product.price}} 
+{{product.quantity}}
+{{product.picture}}
